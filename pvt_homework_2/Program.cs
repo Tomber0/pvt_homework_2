@@ -11,7 +11,22 @@ namespace pvt_homework_2
         static void Main(string[] args)
 
         {
-            SpecialTask1();
+            int choiseChosenNumber = Convert.ToInt32(Console.In.ReadLine());
+            switch (choiseChosenNumber)
+            {
+                case 1:
+                    FirstTask();
+                    break;
+                case 2:
+                    SecondTask();
+                    break;
+                case 3:
+                    SpecialTask1();
+                    break;
+                default:
+                    break;
+            }
+            //SpecialTask1();
             //TODO:
             //1) прочитать про систему типов Рихтера
             //2) 
@@ -95,6 +110,7 @@ namespace pvt_homework_2
             }
 
         }
+        
         static void SpecialTask1() {
 
             int baseArray1SizeVertical = 3, baseArray1SizeHorisontal = 2;
@@ -106,25 +122,31 @@ namespace pvt_homework_2
             
 
             int baseArray2SizeVertical = 2, baseArray2SizeHorisontal = 2;
-            int[,] baseArray2 = { { 1, 0 }, { 2, 0 } };// new int[baseArray2SizeVertical, baseArray2SizeHorisontal];
+            int[,] baseArray2 = { { 1, 1 }, 
+                { 2, 0 } };// new int[baseArray2SizeVertical, baseArray2SizeHorisontal];
 
             int[,] resutArray1 = new int[baseArray1SizeVertical, baseArray1SizeHorisontal];
-
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    resutArray1[i, j] = 0;
+                }
+            }
             if (baseArray1SizeHorisontal == baseArray2SizeVertical)
             {
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < baseArray1SizeVertical; i++)
                 {
-                    for (int j = 0; j < 1 ; j++)
+
+                    for (int j = 0; j < baseArray2SizeHorisontal; j++)
                     {
-                        resutArray1[i, j] = 0;
-                        for (int z = 0; z < 2; z++)
+
+                        for (int z = 0; z < baseArray2SizeVertical; z++)
                         {                        
-                        resutArray1[i, j] += baseArray1[i, z] * baseArray2[z, j] ;
-                            Console.Out.Write("{0}\t", resutArray1[i, j]);
-
+                        resutArray1[i, j] += baseArray1[i, z] * baseArray2[z, j];
+                          //  Console.Out.Write("{0}\t",resutArray1[i,j]);
                         }
-                        Console.Out.Write("\n");
-
+                       // Console.Out.Write("\n");
                     }
 
                 }
@@ -133,7 +155,53 @@ namespace pvt_homework_2
                 Console.Out.WriteLine("Произвести умножение невозможно!");
             }
 
+
+            for (int i = 0; i < baseArray1SizeVertical; i++)
+            {
+
+                for (int j = 0; j < baseArray1SizeHorisontal; j++)
+                {
+
+                        Console.Out.Write("{0}\t", resutArray1[i, j]);
+                }
+                Console.Out.Write("\n");
+
+            }
+
         }
+
+        /*       static void SpecialTask2() {
+                   Console.Out.WriteLine("Введите формулу: ");
+                   string formulaInputLine =  Console.In.ReadLine();
+                   string formulaSubInputLine = "";
+                   int[] formulaLesserResult = new int[formulaInputLine.Length];
+                   for (int i = 0; i < formulaLesserResult.Length; i++)
+                   {
+                       formulaLesserResult[i] = 0;
+
+                   }
+                   int formulaIndex = 0;
+
+                   while (formulaInputLine.Length > formulaIndex) {
+                      char nextSymbol = Convert.ToChar( formulaInputLine.Substring(formulaIndex,1));
+                       Console.Out.WriteLine(nextSymbol);//DEBUG
+                       if (nextSymbol == '(')
+                       {
+                           while (nextSymbol != ')')
+                           {
+
+
+                           }
+                       }
+                       if(Convert.ToInt32(nextSymbol) 
+
+
+                           formulaIndex++;
+
+                   }
+
+               }
+               */
     }
 }
 //Д\з
