@@ -95,14 +95,14 @@ namespace pvt_homework_2
         }
         static void SecondTask() {
             //заполняет двумерный массив без счетчика
-            int arrayTofill1VerticalSize = 5, arrayTofill1HorisontalSize = 5;
+            int arrayTofill1VerticalSize = 5, arrayTofill1HorisontalSize = 7;
             int[,] arrayTofill1 = new int[arrayTofill1VerticalSize, arrayTofill1HorisontalSize];
 
             for (int i = 0; i < arrayTofill1VerticalSize; i++)
             {
                 for (int j = 0; j < arrayTofill1HorisontalSize; j++)
                 {
-                    arrayTofill1[i, j] = i*arrayTofill1VerticalSize + j;
+                    arrayTofill1[i, j] = i* arrayTofill1HorisontalSize + j;
                     Console.Out.Write("{0}\t",arrayTofill1[i,j]);
                 }
                 Console.Out.Write("\n");
